@@ -1,3 +1,7 @@
+# CSCI 2824 -- Discrete Structures
+# Author: Bach Nguyen
+# Homework 1 - Problem #12
+
 def ParityParty(d):
     a_list = []                     # Declaring our list to store the values
 

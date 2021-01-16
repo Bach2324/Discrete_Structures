@@ -1,3 +1,7 @@
+# CSCI 2824 -- Discrete Structures
+# Author: Bach Nguyen
+# Homework 1 - Problem #12
+
 def DecToBin(d):
     a_list = []                     # Declare list to store our binary values in
     for i in range(10):             # to traverse through the length of a binary value
