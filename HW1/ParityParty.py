@@ -8,6 +8,7 @@ def ParityParty(d):
     if (d % 2 == 0):                # Evaluate if the argument is an even number
         a_list.append(0)            # Append 0 to the first index of the list
         a_list.append(int(d/2))     # Append the value divided by 2 (convert to int type) to the second index
+    
     else:                           # Evaluate if argument is odd
         a_list.append(1)            # Append 1 to the first index of the list
         a_list.append(int((d-1)/2)) # Append value minus 1 and divide by 2 to the second index
