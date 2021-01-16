@@ -1,6 +1,6 @@
 # CSCI 2824 -- Discrete Structures
 # Author: Bach Nguyen
-# Homework 1 - Problem #12
+# Homework 1 - Problem #13
 
 def DecToBin(d):
     a_list = []                     # Declare list to store our binary values in
