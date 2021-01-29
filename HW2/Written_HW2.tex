@@ -1,0 +1,432 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+
+\author{sudoTech}
+\title{Discrete Structure Homework 2 -- Written}
+
+\pagestyle{fancy}
+
+\fancyhf{}
+\lhead{Discrete Structures | Homework 2}
+\rhead
+{
+    Bach Nguyen | ID: 104263571
+}
+
+\begin{document}
+
+\textbf{Q1}. Propositions | p = "A is a knight" , q = "B is a knight", r = "C is a knight" \\
+
+\setlength\parindent{40pt}\textbf{A}: "I'm a knight or B is a knave." can be translated to $(p \lor \neg q)$
+
+\setlength\parindent{40pt}\textbf{B}: "A is a knight and C is a knave." can be translated to $(p \land \neg r)$
+
+\setlength\parindent{40pt}\textbf{C}: "Myself and B are different." can be translated to $(r \oplus q)$\\
+
+{\large\centerline{Truth tables}}
+
+\begin{displaymath}
+    \begin{array}{|c|c|c|c|c|c|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    p & q & r & \neg p & \neg q & \neg r & p \lor \neg q & p \land \neg r & r \oplus q\\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \end{array}
+\end{displaymath} \\
+
+\begin{displaymath}
+    \begin{array}{|c|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    p \iff (p \lor \neg q) & q \iff (p \land \neg r) & r \iff (r \oplus q)\\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \end{array}
+\end{displaymath}\\
+
+{\large\centerline{Final Test Proposition Truth Table}}
+
+\begin{displaymath}
+    \begin{array}{|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    (p \iff (p \lor \neg q)) \land (q \iff (p \land \neg r)) \land (r \iff (r \oplus q))\\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F}\\
+    \hline
+    \end{array}
+\end{displaymath} \\[0.5in]
+
+\noindent\textbf{Conclusion}: From the final test Propositions, we can see that we only yielded one \textcolor{blue}{T}, which is in the 3rd row. Looking back at our first Truth table, this would mean: \\
+
+{\large\centerline{ A is a knight}}
+{\large\centerline{B is a knave}}
+{\large\centerline{ C is a knight}}\vspace{1cm}
+
+\noindent We can justify this conclusion by looking at C's statement and seeing that it does hold true, in which B is in fact a different type. B's statement does not hold true as C is a is knight and not a knave. A's statement about B holds true, which justifies it's statement about being a knight.\\[0.2in]
+
+\noindent\textbf{Q2a}. Proving $\neg(\neg p \lor \neg(q \implies \neg r) \equiv p \land \neg(q \land r)$ through Truth Table\\
+
+{\large\centerline{$(\neg(\neg p \lor \neg(q \implies \neg r))$}}
+
+\begin{displaymath}
+    \begin{array}{|c|c|c|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    p & q & r & \neg p & \neg q & \neg r\\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \end{array}
+\end{displaymath} \\
+\begin{displaymath}
+    \begin{array}{|c|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    q \implies \neg r & \neg(q \implies \neg r) & \neg p \lor \neg(q \implies \neg r) & \neg(\neg p \lor \neg(q \implies \neg r))\\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \end{array}
+\end{displaymath} \\[1in]
+
+{\large\centerline{$p \land \neg(q \land r)$}}
+
+\begin{displaymath}
+    \begin{array}{|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    q \land r & \neg(q \land r) & p \land \neg(q \land r) \\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{red}{F}\\
+    \hline
+    \end{array}
+\end{displaymath} \\
+\begin{displaymath}
+    \begin{array}{|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    \neg(\neg p \lor \neg(q \implies \neg r)) & p \land \neg(q \land r) & \neg(\neg p \lor \neg(q \implies \neg r) \iff p \land \neg(q \land r) \\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T}\\
+    \hline
+    \end{array}
+\end{displaymath} \\
+
+{\large\centerline{Through Logical Equivalence}}
+\begin{displaymath}
+    \begin{array}{|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    Steps & \neg(\neg p \lor \neg(q \implies \neg r) & Logical \: Equivalence \\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    1 & \neg(\neg p \lor \neg(\neg q \lor \neg r) & RBI\\
+    \hline
+    2 & \neg(\neg p \lor [\neg \neg q \land \neg \neg r]) & 2nd \: Demorgan's \: Law\\
+    \hline
+    3 & \neg(\neg p \lor (q \land r)) & Double \: Negation\: Law\\
+    \hline
+    4 & \neg \neg p \land \neg (q \land r)) & 2nd \: Demorgan's \: Law\\
+    \hline
+    5 & p \land \neg(q \land r) & Double \: Negation\: Law\\
+    \hline
+    \end{array}
+\end{displaymath} \\
+
+\textbf{A}: Through Truth Table and Logical Equivalence rules, we can see that
+
+\setlength\parindent{40pt}{$\neg(\neg p \lor \neg(q \implies \neg r)$ and $(p \land \neg(q \land r)$ are both logically Equivalent} \\[2in]
+
+\textbf{Q2b}. Proving $p \implies (p \lor q) \equiv q \lor \neg q$ through Truth Table\\
+
+{\large\centerline{$p \implies (p \lor q)$}}
+
+\begin{displaymath}
+    \begin{array}{|c|c|c|c|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    p & q & \neg p & \neg q & p \lor q & p \implies (p \lor q) & q \lor \neg q\\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \textcolor{red}{F} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T} & \textcolor{red}{F} & \textcolor{blue}{T} & \textcolor{blue}{T}\\
+    \hline
+    \end{array}
+\end{displaymath} \\
+
+\textbf{A}: Through Truth Table, we can see that $p \implies (p \lor q)$ and $q \lor \neg q$ are both 
+
+\setlength\parindent{40pt}{tautology, which proves that they're Logically Equivalent} \\
+
+{\large\centerline{Through Logical Equivalence}}
+\begin{displaymath}
+    \begin{array}{|c|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    Steps & p \implies (p \lor q) & Logical \: Equivalence \\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    1 & \neg p \lor (p \lor q) & RBI\\
+    \hline
+    2 & (\neg p \lor p) \lor q & Associative \: Law\\
+    \hline
+    3 & q \lor (\neg p \lor p) & Commutative\: Law\\
+    \hline
+    4 & q \lor T \equiv T & Domination \: Law\\
+    \hline
+    5 & T \equiv q \lor \neg q & Negation\: Law\\
+    \hline
+    \end{array}
+\end{displaymath} \\
+
+\textbf{A}: Through a chain of rules, we can see transform $p \implies (p \lor q)$ to $q \lor \neg q$, thus 
+
+\setlength\parindent{40pt}{proving that they're Logically Equivalent}\\[0.5in]
+
+\textbf{Q3a}. Translating each group's seating requirements into a Proposition\\
+
+\begin{displaymath}
+    \begin{array}{|c|c|}
+    % |c c|c| means that there are three columns in the table and
+    % a vertical bar ’|’ will be printed on the left and right borders,
+    % and between the second and the third columns.
+    % The letter ’c’ means the value will be centered within the column,
+    % letter ’l’, left-aligned, and ’r’, right-aligned.
+    \hline
+    Req & Proposition\\ % Use & to separate the columns
+    \hline % Put a horizontal line between the table header and the rest.
+    1 & C(N,V)\\
+    \hline
+    2 & C(D,S)\land (C(D,F)\lor C(D,N))\\
+    \hline
+    3 & \neg C(F,N) \lor \neg C(F,S)\\
+    \hline
+    4 & C(F,D) \iff (\neg C(D,N) \land \neg C(D,F))\\
+    \hline
+    5 & \exists x\exists y(C(F,x) \land (F,y) \land (x \ne y) \land (F \ne x) \land (F \ne y))\\
+    \hline
+    6 & \forall y\exists xC(x,y)\\
+    \hline
+    \end{array}
+\end{displaymath} \\[1in]
+
+\noindent\textbf{Q3b}. Are any requirements satisfiable?\\
+
+{\large\centerline{Possible Seating Arrangements}}\vspace{0.5cm}
+
+\centerline{A: Norville - Velma - Fred - Dalphne - Scooby}
+\centerline{This seating arrangement would contradict the 3rd Proposition}\vspace{0.5cm}
+
+\centerline{B: Fred - Dalphne - Velma - Norville - Scooby}
+\centerline{This seating arrangement would contradict the 2nd and 5th Proposition}\vspace{0.5cm}
+
+\centerline{C: Scooby - Dalphne - Fred - Velma - Norville}
+\centerline{This seating arrangement would contradict the 4th Proposition}\vspace{0.5cm}
+
+\centerline{D: Dalphne - Fred - Velma - Scooby - Norville}
+\centerline{This seating arrangement would contradict the 1st and 2nd Proposition}\vspace{0.5cm}
+
+\noindent\textbf{Conclusion}: We can see that no matter what we do, we cannot satisfy the seating requirements (Why does fred have to be so picky?). Thus, the seating arrangements are NOT satisfiable.\\[0.5in]
+
+\noindent\textbf{Q4a}. Smallest number of fake HW problems to identify the leaker?\\
+
+\noindent We can derive this answer by using binary "logic". When we start with initially 2 CAs, we only need 1 fake homework problem to identify the leaker (since that person will leak anything). From this, if we jump to 4 CAs, we would then need 2 sets of unique fake homework problem to identify the leaker. From this logic, we can derive it as a based 2 problem/equation:\\
+
+{\large\centerline{$2^{(n)}= 100$ , n = ?}}\vspace{0.5cm}
+
+\noindent Where n is the number of fake homework problem that will identify the leaker out of 100 CAs. From this, we can see if n = 6, that would only cover 64 CAs, but n = 7 would cover up to 128 CAs.\\
+
+\noindent\textbf{Conclusion:} 7 is the smallest number of fake homework problem that will identify the leaker out of 100 course assistants in the class.\\[1.5in]
+
+\noindent\textbf{Q4b.} Max number of CAs n fake homework problem can cover?\\
+
+\noindent\textbf{A}{: From what we derived in part a, we can see that with n being the the number of fake homework problems, 128 would be the maximum number of course assistants the class can have, while still being able to identify the leaker.\\
+
+\noindent Alternatively, we can say that the number of CAs n fake homework problem can cover is equal to the answer of base 2.\\
+
+{\large\centerline{$2^{(n)}= Number \; of \; CAs \; Fake \; HW \; can \; cover$}}\vspace{0.5cm}
+
+\noindent Meaning if n = 5 for example, the maximum number of course assistants that 5 fake homework problems can still be used to identify the leaker is 32.\\[0.5in]
+
+\noindent\textbf{Q5a.} Every inhabitant on the island tells you "Some of us are Knights and some of us are Knaves."\\
+
+\textbf{(i) A:} That statement can be translated into:  $\exists xK(x) \land \exists x(\neg K(x))$\\
+
+\textbf{(ii) A:} If we look at it from the perspective that everyone we talked to
+
+\setlength\parindent{80pt}{is a Knight, then that would make the predicate statement from}
+
+\setlength\parindent{80pt}{(i) false since if we have all Knights, some cannot be knaves and}
+
+\setlength\parindent{80pt}{knights cannot lie. If we look at it from the perspective that}
+
+\setlength\parindent{80pt}{everyone we talked to are Knaves, this would make the predicate}
+
+\setlength\parindent{80pt}{false as well, as some cannot be Knights if all are Knaves. However,}
+
+\setlength\parindent{80pt}{because knaves are liars, this means that the statement came from}
+
+\setlength\parindent{80pt}{Knaves, as it was false. This means the inhabitants on the island are}
+
+\setlength\parindent{80pt}{Knaves.}\\
+
+\noindent\textbf{Q5b.} Only talked to one inhabitant and they said "All of us are Knaves."\\
+
+\setlength\parindent{40pt}\textbf{(i) A:} That statement can be translated into:  $\forall x (\neg K(x))$\\
+
+\setlength\parindent{40pt}\textbf{(ii) A:} Knaves are liars, so in order for the statement to be true, the inhabi-
+
+\setlength\parindent{80pt}{tants cannot be all Knaves. There must exist at least one Knight on}
+
+\setlength\parindent{80pt}{the island for the statement to be valid.}
+
+\end{document}
